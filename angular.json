@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Toro-Integration": {
+    "Integration": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
