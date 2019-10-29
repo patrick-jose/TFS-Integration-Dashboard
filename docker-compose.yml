@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  tfs_integration_dashboad:
+    image: ${DOCKER_IMAGE_NAME}:${APP_VERSION}
+    container_name: ${DOCKER_CONTAINER_NAME}_1
+    restart: always
+    networks:
+      - tfs_integration_dashboad
+    ports:
+      - "8080:80"
+
+networks:
+  tfs_integration_dashboad:
+    name: tfs_integration_dashboad

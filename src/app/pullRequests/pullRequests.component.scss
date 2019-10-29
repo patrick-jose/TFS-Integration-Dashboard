@@ -1,0 +1,139 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-grid;
+    width: 100%;
+
+    .collapse {
+        margin: 25px 0px 0px 25px;
+    }
+
+    li {
+        background: rgb(238, 238, 238);
+        padding: 1em;
+        border-radius: 20px;
+        margin: 0px 0px 10px 0px;
+        grid-template-columns: 60px auto; 
+        position: relative;    
+
+        p {
+            margin-left: 20px;
+            font-size: 15px;
+            text-align: left;
+            margin: 2px 0px 0px 0px;
+            line-height: 38px;
+
+            b {
+                margin-left: 10px;
+            }
+        }
+
+        .card-body {
+            margin: 25px 0px 0px 25px;
+        }
+
+        ul {
+            width: 70%;
+        }
+
+        li {
+            margin: 0px 0px 0px 30px;
+            padding: 0px;
+
+            p {
+                float: left;
+                font-size: 12px;
+                margin: -3px 10px 10px 10px;
+                cursor: default;
+                font-weight: inherit;
+            }          
+        }
+    }
+}
+
+img {
+    border-radius: 50%;
+    width: 40px;
+    float: left;
+}
+.rev-img {
+    border-radius: 50%;
+    width: 30px;
+    float: left;
+}
+
+.TFS-img {
+    width: 150px;
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+span {
+    font-size: 12px;
+    padding-bottom: 10px;
+    line-height: 30px;
+}
+
+.panel-group {
+    width: 90%;
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.panel-rejected>.panel-heading {
+    background-color: red;
+}
+.panel-closed>.panel-heading {
+    background-color: green;
+}
+.panel-opened>.panel-heading {
+    background-color: #00add2;
+}
+.panel-heading {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+    height: 37px;
+    width: 180px;
+}
+.panel-opened>.panel-body {
+    color: #00add2;
+}
+.panel-rejected>.panel-body {
+    color: red;
+}
+.panel-closed>.panel-body {
+    color: green;
+}
+.panel-body {
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    font-size: 40px;
+}
+.panel-opened {
+    float:left;
+}
+.panel-closed {
+    margin: 0 auto;
+    display: table;
+}
+.panel-rejected {
+    float:right;
+}
+.check-img {
+    width: 24px;
+}
+.x-img {
+    width: 24px;
+    margin: 4px 0px 0px 0px;
+}
+.search-bar {
+    width: 100%;
+    height: 30px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}

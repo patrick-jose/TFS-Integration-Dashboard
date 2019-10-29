@@ -1,0 +1,39 @@
+header {
+    background: #091827;
+
+    .logo {
+        font-size: 30px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        float: left;
+        display: block;
+    }
+
+    nav {
+        justify-self: right;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 7px 0px 0px 10px;
+
+            li {
+                float: left;
+
+                a {
+                    padding: 15px;
+                    font-size: 0.8em;
+                    margin: 15px;
+
+                    &:hover {
+                        background: #00add2;
+                        border-radius: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<h1>Pull Requests</h1>
+
+<div>
+  <div class="panel-group">
+    <div class="panel panel-opened">
+      <div class="panel-heading">Abertos</div>
+      <div class="panel-body">{{ openedPRs }}</div>
+    </div>
+
+    <div class="panel panel-rejected">
+      <div class="panel-heading">Rejeitados</div>
+      <div class="panel-body">{{ rejectedPRs }}</div>
+    </div>
+
+    <div class="panel panel-closed">
+      <div class="panel-heading">Fechados</div>
+      <div class="panel-body">{{ closedPRs }}</div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-bottom: 60px">
+  <canvas #canvas id="canvas"></canvas>
+</div>
+
+<div class="md-form">
+  <input type="search" [(ngModel)]="searchText" placeholder="Search text" class="search-bar">
+</div>
+
+<ul *ngIf="pullRequests | filter: searchText">
+  <li *ngFor="let pullRequest of (pullRequests | filter: searchText)">
+    <ngb-accordion #acc="ngbAccordion">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <img [src]="pullRequest.createdBy.imageUrl">
+          <p>             
+            <b>[{{ pullRequest.repository.name }}]
+            {{ pullRequest.sourceRefName.includes("release") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("release"), pullRequest.sourceRefName.length) : 
+            pullRequest.sourceRefName.includes("feature") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("feature"), pullRequest.sourceRefName.length) :
+            pullRequest.sourceRefName.includes("feat") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("feat"), pullRequest.sourceRefName.length) :
+            pullRequest.sourceRefName.includes("fix") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("fix"), pullRequest.sourceRefName.length) :
+            pullRequest.sourceRefName.includes("bugfix") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("bugfix"), pullRequest.sourceRefName.length) :
+            pullRequest.sourceRefName.includes("hotfix") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("hotfix"), pullRequest.sourceRefName.length) : 
+            pullRequest.sourceRefName.includes("improvement") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("improvement"), pullRequest.sourceRefName.length) :
+            pullRequest.sourceRefName.includes("develop") ? pullRequest.sourceRefName.substring(pullRequest.sourceRefName.indexOf("develop"), pullRequest.sourceRefName.length) : "Outro" }}
+            para 
+            {{ pullRequest.targetRefName.includes("develop") ? "Develop" : "Master!" }} -</b> {{ pullRequest.title }}
+          </p>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <br />
+          <span><b>Descrição:</b> {{ pullRequest.description }}</span>
+          <br />
+          <span><b>Status:</b> {{ pullRequest.status }}</span>
+          <a href="{{ pullRequest.url }}" target="_blank">
+              <img src="assets/img/TFS-large.png" class="TFS-img">
+          </a>    
+          <br />    
+          <span><b>Reviewers</b></span>
+          <br/>
+          <ul *ngIf="pullRequest.reviewers">             
+            <li *ngFor="let reviewer of pullRequest.reviewers">
+              <img [src]="reviewer.imageUrl" class="rev-img">
+              <p>{{ reviewer.displayName }}</p>
+              <img *ngIf="reviewer.vote == 10" src="assets/img/check-mark-tick-mark-check-png-31.png" class="check-img">
+              <img *ngIf="reviewer.vote == -10" src="assets/img/erase_delete_remove_wipe_out-512.png" class="x-img">
+              <img *ngIf="reviewer.vote == 0" src="assets/img/Life_Insurance-25-512.png" class="x-img">
+            </li>
+          </ul>
+          <br />       
+          <span><b>Status do merge:</b> {{ pullRequest.mergeStatus }}</span>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </li>
+</ul>

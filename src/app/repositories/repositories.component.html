@@ -1,0 +1,7 @@
+<ul *ngIf="repositories">
+    <li *ngFor="let repository of repositories">
+        <a (click)="clickRepo(repository.id, repository.name)" routerLink="/pullRequestsByRepo">
+          {{ repository.name }}
+        </a>
+    </li>
+</ul>

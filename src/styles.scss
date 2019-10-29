@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+h1 {
+    margin: 20px 0px 50px 20px;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1.3em;
+    display: flex;
+    grid-template-columns: 30% auto;
+
+    a {
+        color: white;
+    }
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    background-color: inherit;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:focus {
+    outline: none;
+}

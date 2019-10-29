@@ -1,0 +1,24 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'filter'
+})
+export class FilterPipe implements PipeTransform {
+
+  transform(items: any, searchText: string): any {
+    if (!items) {
+      return [];
+    }
+    if (!searchText) {
+      return items;
+    }
+    searchText = searchText.toLocaleLowerCase();
+
+    return items.filter(it => {
+      return it.title.toLocaleLowerCase().includes(searchText) || 
+      it.sourceRefName.toLocaleLowerCase().includes(searchText) ||
+      it.targetRefName.toLocaleLowerCase().includes(searchText);
+    });
+  }
+
+}
