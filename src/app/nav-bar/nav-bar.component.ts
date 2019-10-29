@@ -12,7 +12,7 @@ export class NavBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.appTitle = 'Toro Integration';
+    this.appTitle = 'Integration';
   }
 
 }
